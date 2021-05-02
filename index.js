@@ -21,7 +21,8 @@ form.onsubmit = function() {
 
 function formatData(data)
 {	
-
+	
+	console.log(data);
 	document.getElementById('details').innerHTML = '';
 	data['sessions'].forEach(present);
 	
@@ -58,16 +59,26 @@ function present(item, index)
 	var node5 = document.createElement("li");
 	let fee = document.createTextNode("Fee: "+ item['fee_type']+"\n");
 	
+	var node6 = document.createElement("li");
+	let age = document.createTextNode("Minimum age limit: "+ item['min_age_limit']+"\n");
+	
+	var node7 = document.createElement("li");
+	let time = document.createTextNode("From: "+ item['from']+" To: "+ item['to']);
+	
 	node1.appendChild(name);
 	node2.appendChild(date);
 	node3.appendChild(cap);
 	node4.appendChild(vacc);
 	node5.appendChild(fee);
+	node6.appendChild(age);
+	node7.appendChild(time);
 	node.appendChild(node1);
 	node.appendChild(node2);
 	node.appendChild(node3);
 	node.appendChild(node4);
 	node.appendChild(node5);
+	node.appendChild(node6);
+	node.appendChild(node7);
 	listele.append(node);
 	document.getElementById("details").appendChild(listele);   
 	
