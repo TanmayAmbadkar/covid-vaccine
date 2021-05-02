@@ -24,8 +24,9 @@ main {
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.5);
   min-width: 350px;
   max-width: 450px;
-  width: 40vw;
+  width: 45vw;
   padding: 2rem;
+  overflow: auto;
 }
 
 main .form-buttons {
