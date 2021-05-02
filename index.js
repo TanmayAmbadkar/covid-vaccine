@@ -29,20 +29,11 @@ form.onsubmit = function() {
 	if(tdate == "")
 		tdate = fdate;
 	
-	let date1 = fdate.split("-");
-	let date2 = tdate.split("-");
-	let temp = date1[0];
-	date1[0]=date1[2];
-	date1[2]=temp;
+	console.log(fdate);
+	console.log(tdate);
 	
-	temp = date2[0];
-	date2[0]=date2[2];
-	date2[2]=temp;
 	
-	let startDate = date1.join("-");
-	let endDate = date2.join("-");
-	
-	var dateArray = getDates(startDate, endDate);
+	var dateArray = getDates(fdate, tdate);
 	
 	console.log(dateArray);
 	dateArray.forEach(datefn);
