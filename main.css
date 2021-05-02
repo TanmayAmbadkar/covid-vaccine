@@ -1,26 +1,32 @@
 html,
 body {
-  background-color: #f4f4f4;
+  background-color: #222831;
   font-family: "Open Sans", sans-serif;
   height: 100%;
   margin: 0;
-  color: #333;
+  color: #ececec;
 }
 
-
+h2, p{
+	text-align: center!important;
+} 
+a{ 
+	color: #f2a365;
+}
 body {
   display: flex;
   justify-content: center;
 }
 
 h1 {
-  font-weight: 300;
+	text-align-center!important;
+	font-weight: 300;
 }
 
 main {
   align-self: top;
-  background-color: #fefefe;
-  border: 1px solid #f2f2f2;
+  background-color: #30475e;
+  border: 1px solid #222831;
   border-radius: 3px;
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.5);
   min-width: 350px;

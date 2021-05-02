@@ -27,7 +27,7 @@ function formatData(data)
 	data['sessions'].forEach(present);
 	
 	if(data['sessions'].length==0)
-		document.getElementById('details').innerHTML = "No Data available!";
+		document.getElementById('details').innerHTML = "Data not updated. Please try another pincode/date or come back later.";
 	
 	else
 	{
