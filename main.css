@@ -137,7 +137,7 @@ main .form-buttons button {
  without having to include it in the markup */
 .label--required:after {
   content: "*";
-  color: red;
+  color: #f2a365;
   margin-left: 5px;
 }
 
