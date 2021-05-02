@@ -1,11 +1,62 @@
+function addDays(currdate, days){
+    var date = new Date(currdate);
+    date.setDate(date.getDate() + days);
+    return date;
+}
+ 
+ 
+function getDates(startDate, stopDate) {
+    var dateArray = new Array();
+    var currentDate = new Date(startDate);
+	console.log(currentDate)
+    while (currentDate <= new Date(stopDate)) {
+		dateArray.push(currentDate.getDate()+"-"+(currentDate.getUTCMonth()+1)+"-"+currentDate.getUTCFullYear());
+        currentDate = addDays(currentDate, 1);
+    }
+    return dateArray;
+}
+
+
+var pincode = "test";
 var form = document.querySelector('form');
 form.onsubmit = function() {
   // Populate hidden form on submit
-	var pincode = document.querySelector('input[name=pincode]');
-	var date = document.querySelector('input[name=date]');
+	document.getElementById('details').innerHTML = '';
+	
+	pincode = document.querySelector('input[name=pincode]').value;
+	var fdate = document.querySelector('input[name=fdate]').value;
+	var tdate = document.querySelector('input[name=tdate]').value;
+	if(tdate == "")
+		tdate = fdate;
+	
+	let date1 = fdate.split("-");
+	let date2 = tdate.split("-");
+	let temp = date1[0];
+	date1[0]=date1[2];
+	date1[2]=temp;
+	
+	temp = date2[0];
+	date2[0]=date2[2];
+	date2[2]=temp;
+	
+	let startDate = date1.join("-");
+	let endDate = date2.join("-");
+	
+	var dateArray = getDates(startDate, endDate);
+	
+	console.log(dateArray);
+	dateArray.forEach(datefn);
+	
+	
+ 
+  return false;
+};
 
-	let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pincode.value+"&date="+date.value;
-	console.log(url);
+function datefn(date, index)
+{
+	
+	let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pincode+"&date="+date;
+	
 	fetch(url).then(function(response){
 
 		return response.json();
@@ -13,28 +64,23 @@ form.onsubmit = function() {
 	}).then(function(jsondata){
 
 		formatData(jsondata);
-
 	});
- 
-  return false;
-};
+	
+}
 
 function formatData(data)
 {	
 	
 	console.log(data);
-	document.getElementById('details').innerHTML = '';
-	data['sessions'].forEach(present);
 	
 	if(data['sessions'].length==0)
-		document.getElementById('details').innerHTML = "Data not updated. Please try another pincode/date or come back later.";
-	
-	else
 	{
-		console.log(document.getElementsByTagName("main").offsetHeight +'px');
-		//document.body.style.height = document.getElementsByTagName("main").Height +'px';
-		document.getElementsByTagName("main").height="100%";
+		document.getElementById('details').innerHTML = "Data not updated. Please try another pincode/date or come back later.";
+		return;
 	}
+	document.getElementById('details').innerHTML = "";
+		
+	data['sessions'].forEach(present);
 }
 
 
