@@ -56,25 +56,14 @@
                 <div class="form-field">
                     <label for="phone" class="label--required">From Date</label>
                     <section>
-                        <input
-                            id="phone"
-                            name="fdate"
-                            required
-                            type="date"
-                            placeholder="20-05-2021"
-                        />
+                        <input id="phone" name="fdate" required type="date" />
                     </section>
                 </div>
 
                 <div class="form-field">
                     <label for="phone" class="label">To Date</label>
                     <section>
-                        <input
-                            id="phone"
-                            name="tdate"
-                            type="date"
-                            placeholder="21-05-2021"
-                        />
+                        <input id="phone" name="tdate" type="date" />
                     </section>
                 </div>
 
@@ -84,17 +73,15 @@
                 </div>
             </form>
 
-		</form>
-		
-	    <p>
-            <ol id="details">
-                <li>Pin code format - XXXXXX</li>
-                <li>Date format - DD-MM-YYYY</li>
-                <li>
-                    If data is not found, it means the data has not been updated.
-                </li>
-            </ol>
-	    </p>
+            <span>
+                <ol id="details">
+                    <li>Pin code format - XXXXXX</li>
+                    <li>Date format - DD-MM-YYYY</li>
+                    <li>
+                        If data is not found, it means the data has not been updated.
+                    </li>
+                </ol>
+            </span>
             <div class="footer">
                 Made with &hearts; by&nbsp;<a
                     href="https://www.linkedin.com/in/tanmay-ambadkar/"
@@ -106,5 +93,16 @@
         </main>
 
         <script type="text/javascript" src="index.js"></script>
+        <script>
+            // Today's local date in YYYY-MM-DD format
+            var today = new Date()
+                .toLocaleDateString()
+                .split('/')
+                .reverse()
+                .join('-');
+            document.getElementsByName('fdate')[0].setAttribute('min', today);
+            document.getElementsByName('fdate')[0].setAttribute('value', today);
+            document.getElementsByName('tdate')[0].setAttribute('min', today);
+        </script>
     </body>
 </html>
