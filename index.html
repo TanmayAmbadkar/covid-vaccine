@@ -1,75 +1,108 @@
 <html lang="en" dir="ltr">
-<head>  
-	<meta content="width=device-width, initial-scale=1" name="viewport" />
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
 
-    <title>Vacine Availability Search</title>
-    <link rel="stylesheet" href="main.css">
-	<meta name="theme-color" content="#db4938" />
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5N2F8L6X2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+        <title>Vacine Availability Search</title>
+        <link rel="stylesheet" href="main.css" />
+        <meta name="theme-color" content="#db4938" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-Q5N2F8L6X2"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-		gtag('config', 'G-Q5N2F8L6X2');
-	</script>
-</head>
+            gtag('config', 'G-Q5N2F8L6X2');
+        </script>
+    </head>
 
-<body>
-	<main>
-	<h2>Covid-19 Vaccination</h2>
-	<p>FAQ on vaccination: <a href="https://www.mohfw.gov.in/pdf/FrequentlyAskedQuestionsonCOVID19vaccineGeneralPublicEnglish.pdf" target="_blank" rel="noreferrer noopener">Click Here</a></p>
-		<form>
-			<h1>Search for vaccine availability for your pincode</h1>
+    <body>
+        <main>
+            <h2>Covid-19 Vaccination</h2>
+            <p>
+                FAQ on vaccination:
+                <a
+                    href="https://www.mohfw.gov.in/pdf/FrequentlyAskedQuestionsonCOVID19vaccineGeneralPublicEnglish.pdf"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    >Click Here</a
+                >
+            </p>
+            <form>
+                <h1>Search for vaccine availability for your pincode</h1>
 
-			<!-- NAME FIELD -->
-			<div class="form-field">
-				<label for="field" class="label--required">Pincode</label>
-				<section>
-					<input id="field" name="pincode" required type="number" placeholder="110001" />
-				</section>
-			</div>
+                <!-- NAME FIELD -->
+                <div class="form-field">
+                    <label for="field" class="label--required">Pincode</label>
+                    <section>
+                        <input
+                            type="text"
+                            id="field"
+                            name="pincode"
+                            required
+                            pattern="^[0-9]{6}$"
+                            title="Enter Valid Pin Code"
+                            placeholder="110001"
+                        />
+                    </section>
+                </div>
 
-			<!-- PHONE FIELD -->
-			<div class="form-field">
-				<label for="phone" class="label--required">From Date</label>
-				<section>
-					<input id="phone" name="fdate" required type="date" placeholder="20-05-2021" />
-				</section>
-			</div>
-			
-			<div class="form-field">
-				<label for="phone" class="label">To Date</label>
-				<section>
-					<input id="phone" name="tdate" type="date" placeholder="21-05-2021" />
-				</section>
-			</div>
+                <!-- PHONE FIELD -->
+                <div class="form-field">
+                    <label for="phone" class="label--required">From Date</label>
+                    <section>
+                        <input id="phone" name="fdate" required type="date" />
+                    </section>
+                </div>
 
-			
-			
+                <div class="form-field">
+                    <label for="phone" class="label">To Date</label>
+                    <section>
+                        <input id="phone" name="tdate" type="date" />
+                    </section>
+                </div>
 
-			<!-- BUTTONS -->
-			<div class="form-buttons">
-				<button class="a-btn" type="submit">Search</button>
-			</div>
+                <!-- BUTTONS -->
+                <div class="form-buttons">
+                    <button class="a-btn" type="submit">Search</button>
+                </div>
+            </form>
+            <span>
+                <ol id="details">
+                    <li>Pin code format - XXXXXX</li>
+                    <li>Date format - DD-MM-YYYY</li>
+                    <li>
+                        If data is not found, it means the data has not been updated.
+                    </li>
+                </ol>
+            </span>
+            <div class="footer">
+                Made with &hearts; by&nbsp;<a
+                    href="https://www.linkedin.com/in/tanmay-ambadkar/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    >Tanmay Ambadkar</a
+                >
+            </div>
+            <div class="footer">Data Source - MeitY GOI</div>
+        </main>
 
-		</form>
-		
-		<p>
-		
-		<ol id="details">
-			<li> Pin code format - XXXXXX</li>
-			<li> Date format - DD-MM-YYYY</li>
-			<li> The "To Date" field can be left blank</li>
-			<li> If data is not found, it means the data has not been updated.</li>
-		</ol>
-		<div class="footer">Made with &hearts; by&nbsp;</div>
-		<div class="footer">Data Source - MeitY GOI</div>
-
-	</main>
-
-	<script type="text/javascript" src="index.js"></script>
-	
-	
-</body>
+        <script type="text/javascript" src="index.js"></script>
+        <script>
+            // Today's local date in YYYY-MM-DD format
+            var today = new Date()
+                .toLocaleDateString()
+                .split('/')
+                .reverse()
+                .join('-');
+            document.getElementsByName('fdate')[0].setAttribute('min', today);
+            document.getElementsByName('fdate')[0].setAttribute('value', today);
+            document.getElementsByName('tdate')[0].setAttribute('min', today);
+        </script>
+    </body>
+</html>
