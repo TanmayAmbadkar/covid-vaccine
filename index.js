@@ -7,7 +7,7 @@ function addDays(currdate, days) {
 function getDates(startDate, stopDate) {
     var dateArray = new Array();
     var currentDate = new Date(startDate);
-    console.log(currentDate);
+	
     while (currentDate <= new Date(stopDate)) {
         dateArray.push(
             currentDate.getDate() +
@@ -33,8 +33,8 @@ form.onsubmit = function() {
 	var tdate = document.querySelector('input[name=tdate]').value;
 	if(tdate == "")
 		tdate = fdate;
-	
-	document.getElementById('details').innerHTML = "";
+	console.log(tdate);
+	console.log(fdate);
 	var dateArray = getDates(fdate, tdate);
 	dateArray.forEach(datefn);
  
@@ -65,7 +65,6 @@ function formatData(data) {
             'Data not updated. Please try another pincode/date or come back later.';
         return;
     }
-    document.getElementById('details').innerHTML = '';
 
     data['sessions'].forEach(present);
 }
