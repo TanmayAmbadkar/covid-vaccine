@@ -31,6 +31,7 @@ form.onsubmit = function() {
 	
 	console.log(fdate);
 	console.log(tdate);
+	document.getElementById('details').innerHTML = "";
 	
 	
 	var dateArray = getDates(fdate, tdate);
@@ -69,7 +70,6 @@ function formatData(data)
 		document.getElementById('details').innerHTML = "Data not updated. Please try another pincode/date or come back later.";
 		return;
 	}
-	document.getElementById('details').innerHTML = "";
 		
 	data['sessions'].forEach(present);
 }
