@@ -23,24 +23,22 @@ function getDates(startDate, stopDate) {
 
 var pincode = 'test';
 var form = document.querySelector('form');
-form.onsubmit = function () {
-    // Populate hidden form on submit
-    document.getElementById('details').innerHTML = '';
 
-    pincode = document.querySelector('input[name=pincode]').value;
-    var fdate = document.querySelector('input[name=fdate]').value;
-    var tdate = document.querySelector('input[name=tdate]').value;
-    if (tdate == '') tdate = fdate;
-
-    console.log(fdate);
-    console.log(tdate);
-
-    var dateArray = getDates(fdate, tdate);
-
-    console.log(dateArray);
-    dateArray.forEach(datefn);
-
-    return false;
+form.onsubmit = function() {
+  // Populate hidden form on submit
+	document.getElementById('details').innerHTML = '';
+	
+	pincode = document.querySelector('input[name=pincode]').value;
+	var fdate = document.querySelector('input[name=fdate]').value;
+	var tdate = document.querySelector('input[name=tdate]').value;
+	if(tdate == "")
+		tdate = fdate;
+	
+	document.getElementById('details').innerHTML = "";
+	var dateArray = getDates(fdate, tdate);
+	dateArray.forEach(datefn);
+ 
+  return false;
 };
 
 function datefn(date, index) {
