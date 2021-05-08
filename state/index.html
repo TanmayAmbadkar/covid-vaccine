@@ -1,6 +1,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+		
 
         <title>Vacine Availability Search</title>
         <link rel="stylesheet" href="main.css" />
@@ -27,7 +28,7 @@
                 <h1>Search for vaccine availability for your pincode</h1>
 
                 <!-- STATE FIELD -->
-                <div class="form-field">
+                <div class="select">
 					<label for="phone" class="label">Select State</label>
                     <select name="state" id="state"  onChange="displayDistrict(this.value);">
 						<option value="" disabled selected>Select</option>
@@ -35,7 +36,7 @@
                 </div>
 
                 <!-- DISTRICT FIELD -->
-                <div class="form-field">
+                <div class="select">
                     <label for="phone" class="label">Select District</label>
 					<select name="district" id="district" onChange="getDistrict(this.value);">
 						<option value="" disabled selected>Select</option>

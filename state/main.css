@@ -95,7 +95,7 @@ main .form-buttons button {
   padding: 0.35em 0.5em;
 }
 
-.form-field > section input {
+.form-field > section input{
   border: 0;
   border-left: 1px solid #ccc;
   flex-grow: 1;
@@ -154,3 +154,59 @@ main .form-buttons button {
 	text-align: center!important;
 }
 
+
+/* Reset Select */
+select {
+	
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  color: #000!important;
+  background: #fff;
+  background-image: none;
+}
+/* Remove IE arrow */
+
+/* Custom Select */
+.select {
+  position: relative;
+  display: flex;
+  width: 22em;
+  height: 2.5em;
+  line-height: 3;
+  overflow: hidden;
+  padding-bottom: 0.5em;
+}
+select {
+  flex: 1;
+  padding-left: 1em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #30475e;
+  padding-right: 1em;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+  color: #f39c12;
+}
+
+.select label{
+	padding-right: 1em;
+
+}
