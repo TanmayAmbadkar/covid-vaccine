@@ -22,9 +22,9 @@ function getDates(startDate, stopDate) {
 }
 
 var pincode = 'test';
-var form = document.querySelector('form');
+var form_state = document.getElementById('form1');
 
-form.onsubmit = function() {
+form_state.onsubmit = function() {
   // Populate hidden form on submit
 	document.getElementById('details').innerHTML = '';
 	
@@ -33,8 +33,6 @@ form.onsubmit = function() {
 	var tdate = document.querySelector('input[name=tdate]').value;
 	if(tdate == "")
 		tdate = fdate;
-	console.log(tdate);
-	console.log(fdate);
 	var dateArray = getDates(fdate, tdate);
 	dateArray.forEach(datefn);
  
@@ -58,8 +56,7 @@ function datefn(date, index) {
 }
 
 function formatData(data) {
-    console.log(data);
-
+   
     if (data['sessions'].length == 0) {
         document.getElementById('details').innerHTML =
             'Data not updated. Please try another pincode/date or come back later.';

@@ -1,0 +1,84 @@
+
+.container {
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  align-items: center;
+  justify-content: center;
+}
+.container .tabs_wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 50px;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.container .tabs_wrapper .tab {
+  border-radius: 50px;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: 500;
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #232323;
+  user-select: none;
+  transition: all 0.4s;
+}
+.container .tabs_wrapper .tab .material-icons {
+  vertical-align: middle;
+  margin-right: 3px;
+  position: relative;
+}
+.container .tabs_wrapper .tab .title {
+  vertical-align: middle;
+}
+.container .tabs_wrapper input {
+  display: none;
+}
+.container .tabs_wrapper .shape {
+  width: 50%;
+  height: 40px;
+  background: linear-gradient(45deg, #c5f3ff 0%, rgba(130, 247, 255, 0.4) 98%);
+  border-radius: 50px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  opacity: 1;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.container .tabs_wrapper #tab_1:checked ~ .shape {
+  left: 10px;
+}
+.container .tabs_wrapper #tab_1:checked ~ .tab[for=tab_1] {
+  z-index: 1;
+  color: #165f53;
+}
+.container .tabs_wrapper #tab_2:checked ~ .shape {
+  left: calc(10px + 45%);
+}
+.container .tabs_wrapper #tab_2:checked ~ .tab[for=tab_2] {
+  z-index: 1;
+  color: #165f53;
+}
+.container .tabs_wrapper #tab_3:checked ~ .shape {
+  left: calc(10px + 120px * 2 );
+}
+.container .tabs_wrapper #tab_3:checked ~ .tab[for=tab_3] {
+  z-index: 1;
+  color: #165f53;
+}
+.container .tabs_wrapper #tab_4:checked ~ .shape {
+  left: calc(10px + 120px * 3);
+}
+.container .tabs_wrapper #tab_4:checked ~ .tab[for=tab_4] {
+  z-index: 1;
+  color: #165f53;
+}
