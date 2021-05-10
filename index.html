@@ -4,6 +4,8 @@
 
         <title>Vacine Availability Search</title>
         <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="tabs.css" />
+        <link rel="stylesheet" href="select.css" />
         <meta name="theme-color" content="#db4938" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script
@@ -23,7 +25,7 @@
 
     <body>
         <main>
-            <h2>Covid-19 Vaccination</h2>
+            <h1>Covid-19 Vaccination</h1>
             <p>
                 FAQ on vaccination:
                 <a
@@ -33,57 +35,105 @@
                     >Click Here</a
                 >
             </p>
-            <p>
-				To check for slots district-wise:
-                <a
-                    href="https://covaccine-search.netlify.app/state"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    >Click Here</a
-                >
-            </p>
+			<h3>Search for vaccine availability </h3>
 			
-            <form>
-                <h1>Search for vaccine availability for your pincode</h1>
+			<section>
+				<div class="container">
+					<div class="tabs_wrapper">
+					
+						<input type="radio" name="tabs" id="tab_1" checked />
+						<label class="tab" for="tab_1">
+							<span class="title">Pincode</span>
+						</label>
+						
+						<input type="radio" name="tabs" id="tab_2" />
+						<label class="tab" for="tab_2">
+							<span class="title">District</span>
+						</label>
+						
+						<span class="shape"></span>
+					</div>
+				</div>
+			</section>
+			<br>
+			
+			<div id="tab_1">
+				<form id="form1">
+					<!-- NAME FIELD -->
+					<div class="form-field">
+						<label for="field" class="label--required">Pincode</label>
+						<section>
+							<input
+								type="text"
+								id="field"
+								name="pincode"
+								required
+								pattern="^[0-9]{6}$"
+								title="Enter Valid Pin Code"
+								placeholder="110001"
+							/>
+						</section>
+					</div>
 
-                <!-- NAME FIELD -->
-                <div class="form-field">
-                    <label for="field" class="label--required">Pincode</label>
-                    <section>
-                        <input
-                            type="text"
-                            id="field"
-                            name="pincode"
-                            required
-                            pattern="^[0-9]{6}$"
-                            title="Enter Valid Pin Code"
-                            placeholder="110001"
-                        />
-                    </section>
-                </div>
+					<!-- PHONE FIELD -->
+					<div class="form-field">
+						<label for="phone" class="label--required">From Date</label>
+						<section>
+							<input id="phone" name="fdate" required type="date" />
+						</section>
+					</div>
 
-                <!-- PHONE FIELD -->
-                <div class="form-field">
-                    <label for="phone" class="label--required">From Date</label>
-                    <section>
-                        <input id="phone" name="fdate" required type="date" />
-                    </section>
-                </div>
+					<div class="form-field">
+						<label for="phone" class="label">To Date</label>
+						<section>
+							<input id="phone" name="tdate" type="date" />
+						</section>
+					</div>
 
-                <div class="form-field">
-                    <label for="phone" class="label">To Date</label>
-                    <section>
-                        <input id="phone" name="tdate" type="date" />
-                    </section>
-                </div>
+					<!-- BUTTONS -->
+					<div class="form-buttons">
+						<button class="a-btn" type="submit">Search</button>
+						<button class="a-btn--filled" onclick=document.location='https://www.cowin.gov.in/home'> REGISTER HERE </button>
+					</div>
+				</form>
+			</div>
+			
+			<div id="tab_2">
+				
+				<form id="form2">
+					<!-- STATE FIELD -->
+					<div class="select">
+						<label for="phone" class="label">Select State</label>
+						<select name="state" id="state"  onChange="displayDistrict(this.value);">
+							<option value="" disabled selected>Select</option>
+						</select>
+					</div>
 
-                <!-- BUTTONS -->
-                <div class="form-buttons">
-                    <button class="a-btn" type="submit">Search</button>
-                    <button class="a-btn--filled" onclick=document.location='https://www.cowin.gov.in/home'> REGISTER HERE </button>
-                </div>
-            </form>
-            <span>
+					<!-- DISTRICT FIELD -->
+					<div class="select">
+						<label for="phone" class="label">Select District</label>
+						<select name="district" id="district">
+							<option value="" disabled selected>Select</option>
+						</select>
+						
+					</div>
+
+					<div class="form-field">
+						<label for="phone" class="label">To Date</label>
+						<section>
+							<input id="phone" name="fdate" type="date" />
+						</section>
+					</div>
+					
+					<!-- BUTTONS -->
+					<div class="form-buttons">
+						<button class="a-btn" type="submit">Search</button>
+						<button class="a-btn--filled" onclick=document.location='https://www.cowin.gov.in/home'> REGISTER HERE </button>
+					</div>
+				</form>
+			</div>
+			
+           <span>
                 <ol id="details">
                     <li>Pin code format - XXXXXX</li>
                     <li>Date format - DD-MM-YYYY</li>
@@ -92,6 +142,7 @@
                     </li>
                 </ol>
             </span>
+			
             <div class="footer">
                 Made with &hearts; by&nbsp;<a
                     href="https://www.linkedin.com/in/tanmay-ambadkar/"
@@ -104,7 +155,9 @@
         </main>
 
         <script type="text/javascript" src="index.js"></script>
-        <script>
+        <script type="text/javascript" src="states.js"></script>
+        <script type="text/javascript" src="form.js"></script>
+		<script>
             // Today's local date in YYYY-MM-DD format
             var today = new Date()
                 .toLocaleDateString()
@@ -114,6 +167,28 @@
             document.getElementsByName('fdate')[0].setAttribute('min', today);
             document.getElementsByName('fdate')[0].setAttribute('value', today);
             document.getElementsByName('tdate')[0].setAttribute('min', today);
+        </script>
+		
+        <script>
+           
+			document.getElementById('form2').style.display="none";
+			
+			document.querySelector('input[id=tab_1]').onclick = function(){
+			
+				document.getElementById('form2').style.display="none";
+				document.getElementById('form1').style.display="block";
+				document.getElementById('details').innerHTML = '';
+
+				
+			}
+			document.querySelector('input[id=tab_2]').onclick = function(){
+				document.getElementById('form1').style.display="none";
+				document.getElementById('form2').style.display="block";
+				document.getElementById('details').innerHTML = '';
+
+			}
+			
+		   
         </script>
     </body>
 </html>
