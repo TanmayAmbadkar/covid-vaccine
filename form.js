@@ -6,7 +6,7 @@ form_dist.onsubmit = function() {
 	
 	var state = document.querySelector('select[name=state]').value;
 	var district = document.querySelector('select[name=district]').value;
-	var fdate = document.querySelector('input[name=fdate]').value;
+	var fdate = document.querySelector('input[name=datestate]').value;
 	fdate = fdate.split('-').reverse().join('-');
 	let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+district_data[district]+"&date="+fdate;
 	fetch(url).then(function(response){
