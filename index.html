@@ -3,9 +3,9 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
         <title>Vacine Availability Search</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="tabs.css" />
-        <link rel="stylesheet" href="select.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/tabs.css" />
+        <link rel="stylesheet" href="css/select.css" />
         <meta name="theme-color" content="#db4938" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script
@@ -49,6 +49,11 @@
 						<input type="radio" name="tabs" id="tab_2" />
 						<label class="tab" for="tab_2">
 							<span class="title">District</span>
+						</label>
+						
+						<input type="radio" name="tabs" id="tab_3" />
+						<label class="tab" for="tab_3">
+							<span class="title">Centres</span>
 						</label>
 						
 						<span class="shape"></span>
@@ -104,7 +109,7 @@
 					<!-- STATE FIELD -->
 					<div class="select">
 						<label for="phone" class="label">Select State</label>
-						<select name="state" id="state"  onChange="displayDistrict(this.value);">
+						<select name="state" id="state"  onChange="displayDistrict(this.value, 2);">
 							<option value="" disabled selected>Select</option>
 						</select>
 					</div>
@@ -122,6 +127,41 @@
 						<label for="phone" class="label">Date</label>
 						<section>
 							<input id="phone" name="datestate" type="date" />
+						</section>
+					</div>
+					
+					<!-- BUTTONS -->
+					<div class="form-buttons">
+						<button class="a-btn" type="submit">Search</button>
+						<button class="a-btn--filled" onclick=document.location='https://www.cowin.gov.in/home'> REGISTER HERE </button>
+					</div>
+				</form>
+			</div>
+			
+			<div id="tab_3">
+				
+				<form id="form3">
+					<!-- STATE FIELD -->
+					<div class="select">
+						<label for="phone" class="label">Select State</label>
+						<select name="statecal" id="statecal"  onChange="displayDistrict(this.value, 3);">
+							<option value="" disabled selected>Select</option>
+						</select>
+					</div>
+
+					<!-- DISTRICT FIELD -->
+					<div class="select">
+						<label for="phone" class="label">Select District</label>
+						<select name="districtcal" id="districtcal">
+							<option value="" disabled selected>Select</option>
+						</select>
+						
+					</div>
+
+					<div class="form-field">
+						<label for="phone" class="label">Date</label>
+						<section>
+							<input id="phone" name="datecal" type="date" />
 						</section>
 					</div>
 					
@@ -154,9 +194,10 @@
             <div class="footer">Data Source - MeitY GOI</div>
         </main>
 
-        <script type="text/javascript" src="index.js"></script>
-        <script type="text/javascript" src="states.js"></script>
-        <script type="text/javascript" src="form.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/states.js"></script>
+        <script type="text/javascript" src="js/form.js"></script>
+        <script type="text/javascript" src="js/calendar.js"></script>
 		<script>
             // Today's local date in YYYY-MM-DD format
             var today = new Date()
@@ -172,22 +213,30 @@
         <script>
            
 			document.getElementById('form2').style.display="none";
+			document.getElementById('form3').style.display="none";
 			
 			document.querySelector('input[id=tab_1]').onclick = function(){
 			
 				document.getElementById('form2').style.display="none";
+				document.getElementById('form3').style.display="none";
 				document.getElementById('form1').style.display="block";
 				document.getElementById('details').innerHTML = '';
-
-				
 			}
+			
 			document.querySelector('input[id=tab_2]').onclick = function(){
 				document.getElementById('form1').style.display="none";
+				document.getElementById('form3').style.display="none";
 				document.getElementById('form2').style.display="block";
+				document.getElementById('details').innerHTML = '';
+			}
+			
+			document.querySelector('input[id=tab_3]').onclick = function(){
+				document.getElementById('form1').style.display="none";
+				document.getElementById('form2').style.display="none";
+				document.getElementById('form3').style.display="block";
 				document.getElementById('details').innerHTML = '';
 
 			}
-			
 		   
         </script>
     </body>

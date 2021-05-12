@@ -21,7 +21,7 @@
   vertical-align: middle;
   font-size: 16px;
   font-weight: 500;
-  width: 50%;
+  width: 33%;
   height: 40px;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@
   display: none;
 }
 .container .tabs_wrapper .shape {
-  width: 50%;
+  width: 33%;
   height: 40px;
   background: linear-gradient(45deg, #c5f3ff 0%, rgba(130, 247, 255, 0.4) 98%);
   border-radius: 50px;
@@ -62,14 +62,14 @@
   color: #165f53;
 }
 .container .tabs_wrapper #tab_2:checked ~ .shape {
-  left: calc(10px + 45%);
+  left: calc(10px + 31%);
 }
 .container .tabs_wrapper #tab_2:checked ~ .tab[for=tab_2] {
   z-index: 1;
   color: #165f53;
 }
 .container .tabs_wrapper #tab_3:checked ~ .shape {
-  left: calc(10px + 120px * 2 );
+  left: calc(10px + 31% * 2 );
 }
 .container .tabs_wrapper #tab_3:checked ~ .tab[for=tab_3] {
   z-index: 1;

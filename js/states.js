@@ -13,6 +13,7 @@ function getStates()
         })
         .then(function (jsondata) {
             displayStates(jsondata['states']);
+			displayStateData(jsondata['states']);
         });
 }
 
@@ -29,7 +30,7 @@ function displayStates(data)
 
 getStates();
 
-function displayDistrict(value)
+function displayDistrict(value, choice)
 {
 	let url =
         'https://cdn-api.co-vin.in/api/v2/admin/location/districts/'+state_data[value];
@@ -39,7 +40,10 @@ function displayDistrict(value)
             return response.json();
         })
         .then(function (jsondata) {
-            changeDistrict(jsondata['districts']);
+			if(choice == 2)
+				changeDistrict(jsondata['districts']);
+			else
+				changeDistrictData(jsondata['districts']) 
         });
 }
 

@@ -1,48 +1,41 @@
-var form = document.querySelector('form');
+var form_dist = document.getElementById('form2');
 
-form.onsubmit = function() {
+form_dist.onsubmit = function() {
+	
   // Populate hidden form on submit
 	document.getElementById('details').innerHTML = '';
 	
 	var state = document.querySelector('select[name=state]').value;
 	var district = document.querySelector('select[name=district]').value;
-	var fdate = document.querySelector('input[name=fdate]').value;
+	var fdate = document.querySelector('input[name=datestate]').value;
 	fdate = fdate.split('-').reverse().join('-');
 	let url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id="+district_data[district]+"&date="+fdate;
-	console.log(url);
 	fetch(url).then(function(response){
 
 		return response.json();
 
 	}).then(function(jsondata){
 
-		formatData(jsondata);
+		formatDataDist(jsondata);
 
 	});
 	
 	return false;
 };
 
-function formatData(data)
+function formatDataDist(data)
 {	
 	
-	console.log(data);
 	document.getElementById('details').innerHTML = '';
-	data['sessions'].forEach(present);
+	data['sessions'].forEach(presentDist);
 	
 	if(data['sessions'].length==0)
 		document.getElementById('details').innerHTML = "No Data available!";
-	
-	else
-	{
-		console.log(document.getElementsByTagName("main").offsetHeight +'px');
-		//document.body.style.height = document.getElementsByTagName("main").Height +'px';
-		document.getElementsByTagName("main").height="100%";
-	}
+
 }
 
 
-function present(item, index)
+function presentDist(item, index)
 {	
 	//let div = document.createElement('div').setAttribute("id", "list"+index);
 	var listele = document.createElement("li");
