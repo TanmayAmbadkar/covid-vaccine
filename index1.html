@@ -3,9 +3,9 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
 
         <title>Vacine Availability Search</title>
-        <link rel="stylesheet" href="../css/main.css" />
-        <link rel="stylesheet" href="../css/tabs.css" />
-        <link rel="stylesheet" href="../css/select.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/tabs.css" />
+        <link rel="stylesheet" href="css/select.css" />
         <meta name="theme-color" content="#db4938" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script
@@ -54,11 +54,6 @@
 						<input type="radio" name="tabs" id="tab_3" />
 						<label class="tab" for="tab_3">
 							<span class="title">Centres</span>
-						</label>
-						
-						<input type="radio" name="tabs" id="tab_4" />
-						<label class="tab" for="tab_4">
-							<span class="title">Certificate</span>
 						</label>
 						
 						<span class="shape"></span>
@@ -177,59 +172,6 @@
 					</div>
 				</form>
 			</div>
-			<div id="tab_4">
-				<p> Beta Testing! </p>
-				<form id="form4">
-					
-					<div class="form-field">
-						<label for="phone" class="label">Phone Number</label>
-						<section>
-							<input id="phone" name="mobile" type="number" />
-						</section>
-					</div>
-					
-					<!-- BUTTONS -->
-					<div class="form-buttons">
-						<button class="a-btn" type="submit">Get OTP</button>
-					</div>
-				</form>
-				
-				<form hidden id="form5">
-					
-					<div class="form-field">
-						<label for="phone" class="label">OTP</label>
-						<section>
-							<input id="phone" name="otp" type="number" />
-						</section>
-					</div>
-					
-					<!-- BUTTONS -->
-					<div class="form-buttons">
-						<button class="a-btn" type="submit">Submit</button>
-					</div>
-				</form>
-				
-				<form hidden id="form6">
-					
-					<div class="form-field">
-						<label for="phone" class="label">Enter Bearer ID</label>
-						<section>
-							<input id="phone" name="bearer" type="number" />
-						</section>
-					</div>
-					
-					<!-- BUTTONS -->
-					<div class="form-buttons">
-						<button class="a-btn" type="submit">Download Certificate</button>
-					</div>
-				</form>
-				<span>
-                <ol id="errors">
-                    
-                </ol>
-            </span>
-				
-			</div>
 			
            <span>
                 <ol id="details">
@@ -256,7 +198,6 @@
         <script type="text/javascript" src="js/states.js"></script>
         <script type="text/javascript" src="js/form.js"></script>
         <script type="text/javascript" src="js/calendar.js"></script>
-        <script type="text/javascript" src="js/certificate.js"></script>
 		<script>
             // Today's local date in YYYY-MM-DD format
             var today = new Date()
@@ -273,48 +214,26 @@
            
 			document.getElementById('form2').style.display="none";
 			document.getElementById('form3').style.display="none";
-			document.getElementById('form4').style.display="none";
-			document.getElementById('form5').style.display="none";
-			document.getElementById('form6').style.display="none";
 			
 			document.querySelector('input[id=tab_1]').onclick = function(){
 			
 				document.getElementById('form2').style.display="none";
 				document.getElementById('form3').style.display="none";
-				document.getElementById('form4').style.display="none";
 				document.getElementById('form1').style.display="block";
-				document.getElementById('form5').style.display="none";
-				document.getElementById('form6').style.display="none";
 				document.getElementById('details').innerHTML = '';
 			}
 			
 			document.querySelector('input[id=tab_2]').onclick = function(){
 				document.getElementById('form1').style.display="none";
 				document.getElementById('form3').style.display="none";
-				document.getElementById('form4').style.display="none";
 				document.getElementById('form2').style.display="block";
-				document.getElementById('form5').style.display="none";
-				document.getElementById('form6').style.display="none";
 				document.getElementById('details').innerHTML = '';
 			}
 			
 			document.querySelector('input[id=tab_3]').onclick = function(){
 				document.getElementById('form1').style.display="none";
 				document.getElementById('form2').style.display="none";
-				document.getElementById('form4').style.display="none";
 				document.getElementById('form3').style.display="block";
-				document.getElementById('form5').style.display="none";
-				document.getElementById('form6').style.display="none";
-				document.getElementById('details').innerHTML = '';
-
-			}
-			document.querySelector('input[id=tab_4]').onclick = function(){
-				document.getElementById('form1').style.display="none";
-				document.getElementById('form2').style.display="none";
-				document.getElementById('form3').style.display="none";
-				document.getElementById('form4').style.display="block";
-				document.getElementById('form5').style.display="none";
-				document.getElementById('form6').style.display="none";
 				document.getElementById('details').innerHTML = '';
 
 			}

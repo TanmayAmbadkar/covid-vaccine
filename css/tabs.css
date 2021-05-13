@@ -21,7 +21,7 @@
   vertical-align: middle;
   font-size: 16px;
   font-weight: 500;
-  width: 33%;
+  width:25%;
   height: 40px;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@
   display: none;
 }
 .container .tabs_wrapper .shape {
-  width: 33%;
+  width: 23%;
   height: 40px;
   background: linear-gradient(45deg, #c5f3ff 0%, rgba(130, 247, 255, 0.4) 98%);
   border-radius: 50px;
@@ -62,21 +62,21 @@
   color: #165f53;
 }
 .container .tabs_wrapper #tab_2:checked ~ .shape {
-  left: calc(10px + 31%);
+  left: calc(10px + 24%);
 }
 .container .tabs_wrapper #tab_2:checked ~ .tab[for=tab_2] {
   z-index: 1;
   color: #165f53;
 }
 .container .tabs_wrapper #tab_3:checked ~ .shape {
-  left: calc(10px + 31% * 2 );
+  left: calc(10px + 24% * 2 );
 }
 .container .tabs_wrapper #tab_3:checked ~ .tab[for=tab_3] {
   z-index: 1;
   color: #165f53;
 }
 .container .tabs_wrapper #tab_4:checked ~ .shape {
-  left: calc(10px + 120px * 3);
+  left: calc(10px + 24% * 3);
 }
 .container .tabs_wrapper #tab_4:checked ~ .tab[for=tab_4] {
   z-index: 1;
